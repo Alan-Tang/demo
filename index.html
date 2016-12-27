@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Alan's first git demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>唐彤——玉儿</title>
+ </head>
   <body>
-    <h1>Hello, Git!</h1>  
+    <h1>唐彤和玉儿共同走过了<span id="day"></span>天！</h1>  
   </body>
+  <script>
+	document.getElementById("day").innerHTML = Math.ceil((new Date()-new Date("2016-12-15"))/1000/3600/24);
+
+  </script>
 </html>
