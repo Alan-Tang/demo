@@ -6,7 +6,7 @@
  </head>
   <body>
 	<div id="now"></div>
-    <h1>唐彤和玉儿共同走过了<span id="day"></span>天！</h1>  
+    <h1>唐彤和玉儿共同走过了<span id="day"></span>！</h1>  
   </body>
   <script>
 	Date.prototype.Format = function (fmt) { //author: meizz 
@@ -25,7 +25,26 @@
 		return fmt;
 	}
 
-	document.getElementById("day").innerHTML = Math.ceil((new Date()-new Date("2016-12-15"))/1000/3600/24);
-	document.getElementById("now").innerHTML = new Date().Format("yyyy-MM-dd hh:mm:ss");
+	function getCurrentTime(){
+		return new Date().Format("yyyy-MM-dd hh:mm:ss");
+	}
+	function getTime(){
+		var second = (new Date()-new Date("2016-12-15 14:55:00"))/1000;
+		var minute = second/60;
+		var hour = minute/60;
+		var days = Math.floor(hour/24);
+		var hours = Math.floor(hour % 24);
+		var minutes = Math.floor(minute % 60);
+		var seconds = Math.floor(second % 60);
+		return days+"天"+hours+"小时"+minutes+"分钟"+seconds+"秒";
+	}
+
+	document.getElementById("day").innerHTML = getTime();
+	document.getElementById("now").innerHTML = getCurrentTime();
+	setInterval(function(){
+		document.getElementById("day").innerHTML = getTime();
+		document.getElementById("now").innerHTML = getCurrentTime();
+	},1000);
+	
   </script>
 </html>
