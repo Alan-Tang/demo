@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Json 转换</title>
+  <style>
+	#container{
+		width: 60%;
+		height: 500px;
+		margin: auto;
+	}
+  </style>
+ </head>
+ <body>
+  <div id="container">
+	  <div style="color:green;font-size:2em;">彤哥Json转换器</div>
+	  <textarea id="content" style="width:100%;height:500px;margin-top:10px;"></textarea>
+	  <br>
+	  <button onclick="format()" style="cursor:pointer">格式化JSON</button>
+	  <button onclick="compress()" style="cursor:pointer">压缩JSON</button>
+	  <button onclick="transfer()" style="cursor:pointer">转义JSON</button>
+	  <button onclick="untransfer()" style="cursor:pointer">去除转义JSON</button>
+	  <button onclick="clearAll()" style="cursor:pointer">清空</button>
+  </div>
+  <script>
+	function format() {
+		var str = document.getElementById("content").value;
+		var result = null;
+		if(Object.prototype.toString.call(str) === "[object String]"){
+			result = JSON.stringify(JSON.parse(str), undefined, 4);
+		}else{
+			result = JSON.stringify(str, undefined, 4);
+		}
+		document.getElementById("content").value = result;
+	}
+
+	function compress(){		
+		var str = document.getElementById("content").value;
+		document.getElementById("content").value = str.replace(/[\t\n ]/gi,"");
+	}
+
+	function transfer(){		
+		var str = document.getElementById("content").value;
+		document.getElementById("content").value = str.replace(/\"/gi,"\\\"");
+	}
+
+	function untransfer(){		
+		var str = document.getElementById("content").value;
+		document.getElementById("content").value = str.replace(/\\\"/gi,"\"");
+	}
+
+	function clearAll(){		
+		document.getElementById("content").value = "";
+	}
+
+
+	
+  </script>
+ </body>
+</html>

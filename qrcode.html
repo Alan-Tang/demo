@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>彤哥为你生成二维码</title>
+		<script src="qrcode.js"></script>
+		<style>
+		#container{
+			width: 60%;
+			height: 500px;
+			margin: auto;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div style="color:green;font-size:2em;">彤哥二维码生成器</div>
+			<textarea id="content" style="width:60%;height:245px;margin-top:10px;" oninput="a(event)" onpropertychange="a(event)"></textarea>
+			<div id="qrcode" style="width:35%;float:right;"></div>
+			<script>
+				new QRCode(document.getElementById('qrcode'), 'https://www.baidu.com');
+
+				function a(event) {
+					document.getElementById('qrcode').innerHTML="";
+					new QRCode(document.getElementById('qrcode'), event.target.value || event.srcElement.value);
+				}
+			</script>
+		</div>
+	</body>
+</html>
