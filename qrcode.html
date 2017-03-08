@@ -22,7 +22,12 @@
 
 				function a(event) {
 					document.getElementById('qrcode').innerHTML="";
-					new QRCode(document.getElementById('qrcode'), event.target.value || event.srcElement.value);
+					var value = event.target.value || event.srcElement.value;
+					if(value) {
+						new QRCode(document.getElementById('qrcode'), event.target.value || event.srcElement.value);
+					}else {
+						new QRCode(document.getElementById('qrcode'), window.location.href);
+					}				
 				}
 			</script>
 		</div>
