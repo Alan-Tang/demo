@@ -2,77 +2,16 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>唐彤——玉儿</title>
+  <title>彤哥主页</title>
   <style>
 	div{
 		font-size:1.2em;
-
 	}
   </style>
  </head>
   <body>
-	<div id="now"></div>
-    <div>唐彤和玉儿一起走过了<span id="day"></span>！</div>	<br>
-	<div>唐彤和玉儿相识：2016年12月15日14时55分</div>	<br>
-	<div>唐彤和玉儿一起看过的电影：<br>
-	《长城》（2016年12月18日）<br>
-	《铁道飞虎》（2016年12月25日）<br>
-	《摆渡人》（2017年1月2日）<br>
-	</div>	<br>
-	<div>唐彤和玉儿一起玩过的地方：<br>
-	观澜版画基地（2016年12月18日）<br>
-	世界之窗冰雪世界（2016年12月25日）<br>
-	欢乐谷夜场（2016年12月31日）<br>
-	深圳湾（2017年1月1日）<br>
-	海上世界（2017年1月1日）<br>
-	世界之窗（2017年1月2日）<br>
-	老街（2017年1月8日）<br>
-	</div>	<br>
-	<div>唐彤和玉儿第一次见面：2016年12月18日 弓村二区 椰子鸡</div>	<br>
-	<div>唐彤第一次送花给玉儿：2016年12月24日 99朵玫瑰</div>	<br>
-	<div>唐彤和玉儿第一次拉手：2016年12月25日 去海岸城的路上</div>	<br>
-	<div>唐彤和玉儿第一次一起做饭：2016年12月31日 鲫鱼汤 芹菜炒牛肉 土豆丝 西兰花 花甲 皮皮虾</div>	<br>
-	<div>唐彤和玉儿第一次同床：2017年1月1日 桂庙新村804</div>	<br>
-	<div>唐彤和玉儿第一次kiss：2017年1月1日 嘿嘿</div>	<br>
-	<div>唐彤和玉儿第一次开房：2017年1月7日 弓村二区</div>	<br>
+	<a href="yuer.html">致玉儿</a><br>
+	<a href="json_format.html">json转换器</a><br>
+	<a href="qrcode.html">二维码转换器</a><br>
   </body>
-  <script>
-	Date.prototype.Format = function (fmt) { //author: meizz 
-		var o = {
-			"M+": this.getMonth() + 1, //月份 
-			"d+": this.getDate(), //日 
-			"h+": this.getHours(), //小时 
-			"m+": this.getMinutes(), //分 
-			"s+": this.getSeconds(), //秒 
-			"q+": Math.floor((this.getMonth() + 3) / 3), //季度 
-			"S": this.getMilliseconds() //毫秒 
-		};
-		if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-		for (var k in o)
-		if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-		return fmt;
-	}
-
-	function getCurrentTime(){
-		return new Date().Format("yyyy-MM-dd hh:mm:ss");
-	}
-	function getTime(){
-		var second = (new Date()-new Date("2016-12-15 14:55:00"))/1000;
-		var minute = second/60;
-		var hour = minute/60;
-		var days = Math.floor(hour/24);
-		var hours = Math.floor(hour % 24);
-		var minutes = Math.floor(minute % 60);
-		var seconds = Math.floor(second % 60);
-		return days+"天"+hours+"小时"+minutes+"分钟"+seconds+"秒";
-	}
-
-	document.getElementById("day").innerHTML = getTime();
-	//document.getElementById("now").innerHTML = getCurrentTime();
-	setInterval(function(){
-		document.getElementById("day").innerHTML = getTime();
-		//document.getElementById("now").innerHTML = getCurrentTime();
-	},1000);
-	
-  </script>
 </html>
