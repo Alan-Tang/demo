@@ -18,7 +18,7 @@
 			<textarea id="content" style="width:60%;height:245px;margin-top:10px;" oninput="a(event)" onpropertychange="a(event)"></textarea>
 			<div id="qrcode" style="width:35%;float:right;"></div>
 			<script>
-				new QRCode(document.getElementById('qrcode'), 'https://www.baidu.com');
+				new QRCode(document.getElementById('qrcode'), window.location.href);
 
 				function a(event) {
 					document.getElementById('qrcode').innerHTML="";
